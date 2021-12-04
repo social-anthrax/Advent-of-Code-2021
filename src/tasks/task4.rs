@@ -17,6 +17,22 @@ pub fn task4_1() -> String {
     best_board.get_score().to_string()
 }
 
+pub fn task4_2() -> String {
+    let input = get_task(4)
+        .lines()
+        .filter(|&x| !x.is_empty())
+        .map(|line| {
+            line.split(&[',', ' '])
+                .filter(|&x| !x.is_empty())
+                .map(|val| val.parse::<u8>().unwrap())
+                .collect()
+        })
+        .collect();
+    println!("{:#?}", input);
+    let mut game_state = GameState::new_game_state(input);
+    let worst_board = game_state.evaluate_worst_board().0;
+    worst_board.get_score().to_string()
+}
 struct GameState {
     input: Vec<u8>,
     boards: Vec<Board>,
@@ -43,6 +59,31 @@ impl GameState {
             let winning_board = self.check_wins();
             if winning_board.is_some() {
                 return self.check_wins().unwrap();
+            }
+        }
+
+        panic!("no solution found.")
+    }
+
+    pub fn evaluate_worst_board<'a>(&'a mut self) -> (&'a Board, usize) {
+        for input in &self.input {
+            {
+                self.boards.iter_mut().for_each(|board| {
+                    board.mark_number(*input);
+                })
+            };
+
+            let mut prev_num = 0;
+            while prev_num != self.boards.len() {
+                prev_num = self.boards.len();
+                let winning_board = self.check_wins();
+                if winning_board.is_some() {
+                    if self.boards.len() == 1 {
+                        return self.check_wins().unwrap();
+                    }
+                    let x = winning_board.unwrap().1.to_owned();
+                    self.boards.remove(x);
+                }
             }
         }
 
@@ -120,7 +161,10 @@ impl Board {
 
     pub fn get_score(&self) -> usize {
         let (_, unmarked) = self.split_marked();
-        unmarked.iter().fold(0, |a, b| a as usize + b.number as usize) as usize * self.last_called as usize
+        unmarked
+            .iter()
+            .fold(0, |a, b| a as usize + b.number as usize) as usize
+            * self.last_called as usize
     }
 
     fn split_marked(&self) -> (Vec<Field>, Vec<Field>) {
