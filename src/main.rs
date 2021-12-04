@@ -12,4 +12,5 @@ fn main() {
     println!("Task3.2 {}", task3::task3_2());
     println!("Task3.1 cursed {}", task3_1_cursed());
     println!("Task3.2 cursed {}", task3_2_cursed());
+    println!("Task4.1 cursed {}", task4::task4_1());
 }
