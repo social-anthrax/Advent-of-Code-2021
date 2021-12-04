@@ -24,8 +24,7 @@ struct GameState {
 
 impl GameState {
     fn new_game_state(mut input: Vec<Vec<u8>>) -> GameState {
-        let mut game_input = input.remove(0);
-        game_input.reverse();
+        let game_input = input.remove(0);
         let boards = input.chunks(5).map(|f| Board::new_board(f)).collect();
         GameState {
             input: game_input,
