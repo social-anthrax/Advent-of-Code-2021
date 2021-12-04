@@ -111,7 +111,8 @@ impl Board {
         let option_flattened = flattened.position(|x| x.number == val);
         match option_flattened {
             Some(x) => {
-                let x = self.board.iter().flatten().nth(x).unwrap();
+                let x: &mut Field = self.board.iter_mut().flatten().nth(x).unwrap();
+                self.last_called = val;
                 (*x).chosen = true;
             }
             None => (),
@@ -120,7 +121,7 @@ impl Board {
 
     pub fn get_score(&self) -> usize {
         let (_, unmarked) = self.split_marked();
-        unmarked.iter().fold(0, |a, b| a + b.number) as usize * self.last_called as usize
+        unmarked.iter().fold(0, |a, b| a as usize + b.number as usize) as usize * self.last_called as usize
     }
 
     fn split_marked(&self) -> (Vec<Field>, Vec<Field>) {
