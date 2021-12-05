@@ -11,7 +11,6 @@ pub fn task4_1() -> String {
                 .collect()
         })
         .collect();
-    println!("{:#?}", input);
     let mut game_state = GameState::new_game_state(input);
     let best_board = game_state.evaluate_best_board().0;
     best_board.get_score().to_string()
@@ -28,7 +27,6 @@ pub fn task4_2() -> String {
                 .collect()
         })
         .collect();
-    println!("{:#?}", input);
     let mut game_state = GameState::new_game_state(input);
     let worst_board = game_state.evaluate_worst_board().0;
     worst_board.get_score().to_string()
@@ -176,19 +174,6 @@ impl Board {
 struct Field {
     number: u8,
     chosen: bool,
-}
-
-impl Field {
-    pub fn new(number: u8) -> Field {
-        Field {
-            number,
-            chosen: false,
-        }
-    }
-
-    pub fn set_chosen(&mut self, x: bool) {
-        self.chosen = x;
-    }
 }
 
 impl From<u8> for Field {
