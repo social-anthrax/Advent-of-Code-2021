@@ -6,6 +6,7 @@ version = 3
 name = "aoc"
 version = "0.1.0"
 dependencies = [
+ "ingrid",
  "partition",
  "reqwest",
 ]
@@ -292,6 +293,12 @@ dependencies = [
  "autocfg",
  "hashbrown",
 ]
+
+[[package]]
+name = "ingrid"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "422647ce7cc9877d5d3ad19016a7ecbdb0c635cdfbca5d881ff9d306dea54fe7"
 
 [[package]]
 name = "ipnet"
