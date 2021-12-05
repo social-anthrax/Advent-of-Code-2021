@@ -40,7 +40,7 @@ impl Line {
     }
 }
 
-pub fn task5_1() -> String {
+pub fn task5_2() -> String {
     let input_lines: Vec<Line> = get_task(5)
         .lines()
         .map(|line| {
@@ -51,7 +51,6 @@ pub fn task5_1() -> String {
         .map(|x| Line::from_vec(x))
         .collect();
 
-    print!("{:#?}", input_lines[0]);
     let coordinates: Vec<Point> = get_task(5)
         .lines()
         .map(|line| {
@@ -72,56 +71,25 @@ pub fn task5_1() -> String {
     drop(max_x);
     drop(max_y);
 
+    // go through lines
+
     for line in input_lines {
-        println!(
-            "{},{} -> {},{}",
-            line.from.x, line.from.y, line.to.x, line.to.y
+        let vec: (isize, isize) = (
+            (line.to.x as isize - line.from.x as isize),
+            (line.to.y as isize - line.from.y as isize),
         );
-
-        if line.from.y == line.to.y {
-            let from_x;
-            let to_x;
-
-            // as rust needs a<b in a..b
-            if line.from.x < line.to.x {
-                from_x = line.from.x;
-                to_x = line.to.x;
-            } else {
-                from_x = line.to.x;
-                to_x = line.from.x;
-            }
-            let y = line.from.y;
-
-            for x in (from_x)..(to_x + 1) {
-                println!("{},{}", x, y);
-                grid[coord!(x, y)] += 1;
-            }
-        } else if line.from.x == line.to.x {
-            let from_y;
-            let to_y;
-
-            // as rust needs a<b in a..b
-            if line.from.y < line.to.y {
-                from_y = line.from.y;
-                to_y = line.to.y;
-            } else {
-                from_y = line.to.y;
-                to_y = line.from.y;
-            }
-
-            let x = line.from.x;
-            for y in from_y..(to_y + 1) {
-                println!("{},{}", x, y);
-                grid[coord!(x, y)] += 1;
-            }
-        } 
+        let (x_incr, y_incr) = (
+            vec.0.checked_div(vec.0.abs()).unwrap_or_else(|| 0),
+            vec.1.checked_div(vec.1.abs()).unwrap_or_else(|| 0),
+        );
+        let (mut x, mut y) = (line.from.x, line.from.y);
+        grid[coord!(x, y)] += 1;
+        while (x, y) != (line.to.x, line.to.y) {
+            x = (x as isize + x_incr) as usize;
+            y = (y as isize + y_incr) as usize;
+            grid[coord!(x, y)] += 1;
+        }
     }
-
-    for row in grid.rows() {
-        row.iterator().for_each(|x| print!("{}", x));
-        println!("")
-    }
-
     grid.iterator()
         .enumerate()
         .filter(|(_, value)| **value > 1) // as 1 indicates a line, and 2 indicates an overlap
