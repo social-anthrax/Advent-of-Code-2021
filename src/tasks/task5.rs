@@ -64,7 +64,6 @@ pub fn task5_2() -> String {
     let max_x = coordinates.iter().max_by_key(|f| f.x).unwrap().x as usize;
     let max_y = coordinates.iter().max_by_key(|f| f.y).unwrap().y as usize;
 
-    println!("{}, {}", &max_x, &max_y);
     let mut grid = Grid::<u8>::with_capacity(size!(max_x + 1, max_y + 1));
     grid.resize(size!(max_x + 1, max_y + 1), 0);
 
