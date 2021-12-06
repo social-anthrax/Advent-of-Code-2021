@@ -6,7 +6,6 @@ use regex::Regex;
 use crate::task_handler::get_task;
 
 pub fn task5() -> (String, String) {
-    eprintln!("warning: the neat versions do not work correctly");
     let mut p1 = HashMap::<(usize, usize), usize>::new();
     let mut p2 = HashMap::<(usize, usize), usize>::new();
 

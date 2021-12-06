@@ -58,10 +58,10 @@ pub fn task3_2_cursed() -> String {
             };
 
             input.retain(|x| (*x >> y) & 1 == common_bit);
-            return Some(());
+            Some(())
         });
 
-        return input[0];
+        input[0]
     };
 
     (calculate(&input, InputType::CO2) * calculate(&input, InputType::Oxygen)).to_string()
