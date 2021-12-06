@@ -1,9 +1,7 @@
-use core::panic;
-use std::{cmp, collections::HashMap};
-
-use regex::Regex;
-
 use crate::task_handler::get_task;
+use core::panic;
+use regex::Regex;
+use std::{cmp, collections::HashMap};
 
 pub fn task5() -> (String, String) {
     let mut p1 = HashMap::<(usize, usize), usize>::new();
@@ -34,8 +32,9 @@ pub fn task5() -> (String, String) {
         }
     }
 
-    (
-        p1.iter().filter(|(_, val)| **val > 1).count().to_string(),
-        p2.iter().filter(|(_, val)| **val > 1).count().to_string(),
-    )
+    let count_crossover = |map: HashMap<(usize, usize), usize>| {
+        map.iter().filter(|(_, val)| **val > 1).count().to_string()
+    };
+
+    (count_crossover(p1), count_crossover(p2))
 }
