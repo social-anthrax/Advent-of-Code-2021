@@ -67,9 +67,6 @@ pub fn task5_2() -> String {
     let mut grid = Grid::<u8>::with_capacity(size!(max_x + 1, max_y + 1));
     grid.resize(size!(max_x + 1, max_y + 1), 0);
 
-    drop(max_x);
-    drop(max_y);
-
     // go through lines
 
     for line in input_lines {
