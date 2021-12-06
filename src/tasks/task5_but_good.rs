@@ -24,23 +24,8 @@ pub fn task5() -> (String, String) {
         let dy = y2 - y1;
 
         for i in 0..(1 + cmp::max(dx.abs(), dy.abs())) {
-            let x = x1
-                + i * {
-                    match dx.cmp(&0) {
-                        cmp::Ordering::Less => -1,
-                        cmp::Ordering::Equal => 0,
-                        cmp::Ordering::Greater => 1,
-                    }
-                };
-
-            let y = y1
-                + i * {
-                    match dy.cmp(&0) {
-                        cmp::Ordering::Less => -1,
-                        cmp::Ordering::Equal => 0,
-                        cmp::Ordering::Greater => 1,
-                    }
-                };
+            let x = x1 + i * dx.signum();
+            let y = y1 + i * dy.signum();
 
             if dx == 0 || dy == 0 {
                 *p1.entry((x as usize, y as usize)).or_insert(0) += 1;
