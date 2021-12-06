@@ -39,20 +39,18 @@ struct GameState {
 impl GameState {
     fn new_game_state(mut input: Vec<Vec<u8>>) -> GameState {
         let game_input = input.remove(0);
-        let boards = input.chunks(5).map(|f| Board::new_board(f)).collect();
+        let boards = input.chunks(5).map(Board::new_board).collect();
         GameState {
             input: game_input,
             boards,
         }
     }
 
-    pub fn evaluate_best_board<'a>(&'a mut self) -> (&'a Board, usize) {
+    pub fn evaluate_best_board(&mut self) -> (&Board, usize) {
         for input in &self.input {
-            {
-                self.boards.iter_mut().for_each(|board| {
-                    board.mark_number(*input);
-                })
-            };
+            self.boards.iter_mut().for_each(|board| {
+                board.mark_number(*input);
+            });
 
             let winning_board = self.check_wins();
             if winning_board.is_some() {
@@ -63,37 +61,33 @@ impl GameState {
         panic!("no solution found.")
     }
 
-    pub fn evaluate_worst_board<'a>(&'a mut self) -> (&'a Board, usize) {
+    pub fn evaluate_worst_board(&mut self) -> (&Board, usize) {
         for input in &self.input {
-            {
-                self.boards.iter_mut().for_each(|board| {
-                    board.mark_number(*input);
-                })
-            };
+            self.boards.iter_mut().for_each(|board| {
+                board.mark_number(*input);
+            });
 
             let mut prev_num = 0;
             while prev_num != self.boards.len() {
                 prev_num = self.boards.len();
                 let winning_board = self.check_wins();
-                if winning_board.is_some() {
-                    if self.boards.len() == 1 {
-                        return self.check_wins().unwrap();
-                    }
-                    let x = winning_board.unwrap().1.to_owned();
-                    self.boards.remove(x);
+                if winning_board.is_none() {
+                    continue;
                 }
+                if self.boards.len() == 1 {
+                    return self.check_wins().unwrap();
+                }
+                let x = winning_board.unwrap().1.to_owned();
+                self.boards.remove(x);
             }
         }
 
         panic!("no solution found.")
     }
 
-    fn check_wins<'b>(&'b self) -> Option<(&'b Board, usize)> {
+    fn check_wins(&self) -> Option<(&Board, usize)> {
         let winning_board = self.boards.iter().position(|board| board.check_win_board());
-        match winning_board {
-            Some(index) => Some((&self.boards[index], index)),
-            None => None,
-        }
+        winning_board.map(|index| (&self.boards[index], index))
     }
 }
 
@@ -127,15 +121,11 @@ impl Board {
         let v = self.board;
         assert!(!v.is_empty());
         (0..v[0].len())
-            .map(|i| {
-                v.iter()
-                    .map(|inner| inner[i].clone())
-                    .collect::<Vec<Field>>()
-            })
+            .map(|i| v.iter().map(|inner| inner[i]).collect::<Vec<Field>>())
             .collect()
     }
 
-    fn check_win_vec(line_vec: &Vec<Field>) -> bool {
+    fn check_win_vec(line_vec: &[Field]) -> bool {
         line_vec.iter().all(|x| x.chosen)
     }
 
@@ -147,13 +137,10 @@ impl Board {
     pub fn mark_number(&mut self, val: u8) {
         let mut flattened = self.board.iter_mut().flatten();
         let option_flattened = flattened.position(|x| x.number == val);
-        match option_flattened {
-            Some(x) => {
-                let x: &mut Field = self.board.iter_mut().flatten().nth(x).unwrap();
-                self.last_called = val;
-                (*x).chosen = true;
-            }
-            None => (),
+        if let Some(x) = option_flattened {
+            let x: &mut Field = self.board.iter_mut().flatten().nth(x).unwrap();
+            self.last_called = val;
+            (*x).chosen = true;
         };
     }
 
