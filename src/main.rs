@@ -14,5 +14,8 @@ fn main() {
     println!("Task3.2 cursed {}", task3_2_cursed());
     println!("Task4.1 cursed {}", task4::task4_1());
     println!("Task4.2 cursed {}", task4::task4_2());
-    println!("Task5.1 {}", task5::task5_2())
+    println!("Task5.1 {}", task5::task5_2());
+    let (neat_1, neat_2) = task5_but_good::task5();
+
+    println!("Task5.1 {} \nTask5.2 {}", neat_1, neat_2);
 }

@@ -4,3 +4,4 @@ pub mod task3;
 pub mod task3_cursed;
 pub mod task4;
 pub mod task5;
+pub mod task5_but_good;
