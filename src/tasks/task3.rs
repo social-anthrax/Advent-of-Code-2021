@@ -2,7 +2,7 @@ use std::usize;
 
 use crate::task_handler::get_task;
 
-fn most_common_bit(numbers: &Vec<usize>) -> usize {
+fn most_common_bit(numbers: &[usize]) -> usize {
     let mut gamma: usize = 0;
     for column in 0..12 {
         let (one, zero): (Vec<usize>, Vec<usize>) = numbers
@@ -17,7 +17,7 @@ fn most_common_bit(numbers: &Vec<usize>) -> usize {
     gamma
 }
 
-fn most_common_single_bit(column: usize, numbers: &Vec<usize>) -> usize {
+fn most_common_single_bit(column: usize, numbers: &[usize]) -> usize {
     let (one, zero): (Vec<usize>, Vec<usize>) = numbers
         .iter()
         .map(|x| (x >> column) & 1)
@@ -60,7 +60,7 @@ pub fn task3_2() -> String {
         ox_input[0]
     };
 
-    let mut co2_input = input.clone();
+    let mut co2_input = input;
     let co2_rating = {
         let mut common_bit: usize;
         for bit in (0..12).rev() {

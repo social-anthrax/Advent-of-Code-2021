@@ -48,7 +48,7 @@ pub fn task5_2() -> String {
                 .map(|x| Point::from_string(x.to_string()))
                 .collect()
         })
-        .map(|x| Line::from_vec(x))
+        .map(Line::from_vec)
         .collect();
 
     let coordinates: Vec<Point> = get_task(5)
@@ -75,8 +75,8 @@ pub fn task5_2() -> String {
             (line.to.y as isize - line.from.y as isize),
         );
         let (x_incr, y_incr) = (
-            vec.0.checked_div(vec.0.abs()).unwrap_or_else(|| 0),
-            vec.1.checked_div(vec.1.abs()).unwrap_or_else(|| 0),
+            vec.0.checked_div(vec.0.abs()).unwrap_or(0),
+            vec.1.checked_div(vec.1.abs()).unwrap_or(0),
         );
         let (mut x, mut y) = (line.from.x, line.from.y);
         grid[coord!(x, y)] += 1;

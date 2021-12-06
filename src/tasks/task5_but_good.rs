@@ -26,23 +26,19 @@ pub fn task5() -> (String, String) {
         for i in 0..(1 + cmp::max(dx.abs(), dy.abs())) {
             let x = x1
                 + i * {
-                    if dx > 0 {
-                        1
-                    } else if dx < 0 {
-                        -1
-                    } else {
-                        0
+                    match dx.cmp(&0) {
+                        cmp::Ordering::Less => -1,
+                        cmp::Ordering::Equal => 0,
+                        cmp::Ordering::Greater => 1,
                     }
                 };
 
             let y = y1
                 + i * {
-                    if dy > 0 {
-                        1
-                    } else if dy < 0 {
-                        -1
-                    } else {
-                        0
+                    match dy.cmp(&0) {
+                        cmp::Ordering::Less => -1,
+                        cmp::Ordering::Equal => 0,
+                        cmp::Ordering::Greater => 1,
                     }
                 };
 
