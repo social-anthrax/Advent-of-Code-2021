@@ -2,7 +2,11 @@ mod task_handler;
 mod tasks;
 use tasks::*;
 
-use crate::tasks::{task3_cursed::{task3_1_cursed, task3_2_cursed}, task6::{task6_1, task6_2}};
+use crate::tasks::{
+    task3_cursed::{task3_1_cursed, task3_2_cursed},
+    task6::{task6_1, task6_2},
+    task7::{task7_1, task7_2},
+};
 fn main() {
     println!("Task1.1 {}", task1::task1_1());
     println!("Task1.2 {}", task1::task1_2());
@@ -18,6 +22,8 @@ fn main() {
     let (neat_1, neat_2) = task5_but_good::task5();
 
     println!("Task5.1 {} \nTask5.2 {}", neat_1, neat_2);
-    println!("Task6.1 {}" , task6_1());
-    println!("Task6.2 {}" , task6_2());
+    println!("Task6.1 {}", task6_1());
+    println!("Task6.2 {}", task6_2());
+    println!("Task7.1 {}", task7_1());
+    println!("Task7.2 {}", task7_2());
 }

@@ -6,3 +6,6 @@ pub mod task4;
 pub mod task5;
 pub mod task5_but_good;
 pub mod task6;
+pub mod task7;
+pub mod quickselect;
+pub mod task8;
