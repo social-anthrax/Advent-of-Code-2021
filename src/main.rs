@@ -7,6 +7,7 @@ use crate::tasks::{
     task6::{task6_1, task6_2},
     task7::{task7_1, task7_2},
 };
+
 fn main() {
     println!("Task1.1 {}", task1::task1_1());
     println!("Task1.2 {}", task1::task1_2());
