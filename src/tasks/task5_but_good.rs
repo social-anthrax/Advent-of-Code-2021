@@ -8,6 +8,7 @@ pub fn task5() -> (String, String) {
     let mut p2 = HashMap::<(usize, usize), usize>::new();
 
     for line in get_task(5).lines() {
+        //TODO: remove regex
         let (x1, y1, x2, y2) = match Regex::new("\\d+")
             .unwrap()
             .find_iter(line)
