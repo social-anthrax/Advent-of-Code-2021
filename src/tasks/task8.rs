@@ -102,6 +102,7 @@ pub fn task8_2() -> String {
     inputs
         .iter()
         .zip(outputs.iter())
+        // For each line of input, calculate the numbers, and then fold the four output numbers.
         .map(|(input, output)| {
             let numbers = determine_numbers(input);
             output.iter().fold(0, |acc, value| {
