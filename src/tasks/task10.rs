@@ -107,8 +107,8 @@ pub fn task_2() -> String {
         })
         .collect::<Vec<_>>();
 
-    let i = sums.len() / 2;
     // get the median
+    let i = sums.len() / 2;
     nth_element(&mut sums, i).to_string()
 }
 
