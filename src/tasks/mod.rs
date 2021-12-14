@@ -10,3 +10,4 @@ pub mod task7;
 pub mod quickselect;
 pub mod task8;
 pub mod task9;
+pub mod task10;

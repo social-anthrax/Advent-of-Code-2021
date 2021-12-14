@@ -4,7 +4,7 @@ use std::io::Write;
 use reqwest::header::COOKIE;
 
 pub fn get_task(task_id: u8) -> String {
-    match std::fs::read_to_string(format!("src/tasks/task{}.txt", task_id)) {
+    match std::fs::read_to_string(format!("src/task_input/task{}.txt", task_id)) {
         Ok(x) => x,
         Err(_) => {
             let request = reqwest::blocking::Client::new()

@@ -3,11 +3,12 @@ mod tasks;
 use tasks::*;
 
 use crate::tasks::{
+    task10::{task10_1, task10_2},
     task3_cursed::{task3_1_cursed, task3_2_cursed},
     task6::{task6_1, task6_2},
     task7::{task7_1, task7_2},
     task8::{task8_1, task8_2},
-    task9::task9_1,
+    task9::{task9_1, task9_2},
 };
 
 fn main() {
@@ -31,5 +32,8 @@ fn main() {
     println!("Task7.2 {}", task7_2());
     println!("Task8.1 {}", task8_1());
     println!("Task8.2 {}", task8_2());
-    println!("Task9.1 {}", task9_1())
+    println!("Task9.1 {}", task9_1());
+    println!("Task9.2 {}", task9_2());
+    println!("Task10.1 {}", task10_1());
+    println!("Task10.2 {}", task10_2());
 }
