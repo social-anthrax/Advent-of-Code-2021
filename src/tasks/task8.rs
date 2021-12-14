@@ -2,7 +2,7 @@ use std::collections::HashSet;
 
 use crate::task_handler::get_task;
 
-pub fn task8_1() -> String {
+pub fn task_1() -> String {
     let mut input = get_task(8)
         .lines()
         .map(|x| {
@@ -76,7 +76,7 @@ fn determine_numbers(input: &[HashSet<char>]) -> [HashSet<char>; 10] {
     ]
 }
 
-pub fn task8_2() -> String {
+pub fn task_2() -> String {
     let inputs = get_task(8)
         .lines()
         .map(|x| x.split('|').next().unwrap())

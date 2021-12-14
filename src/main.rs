@@ -2,38 +2,29 @@ mod task_handler;
 mod tasks;
 use tasks::*;
 
-use crate::tasks::{
-    task10::{task10_1, task10_2},
-    task3_cursed::{task3_1_cursed, task3_2_cursed},
-    task6::{task6_1, task6_2},
-    task7::{task7_1, task7_2},
-    task8::{task8_1, task8_2},
-    task9::{task9_1, task9_2},
-};
-
 fn main() {
-    println!("Task1.1 {}", task1::task1_1());
-    println!("Task1.2 {}", task1::task1_2());
-    println!("Task2.1 {}", task2::task2_1());
-    println!("Task2.2 {}", task2::task2_2());
-    println!("Task3.1 {}", task3::task3_1());
-    println!("Task3.2 {}", task3::task3_2());
-    println!("Task3.1 cursed {}", task3_1_cursed());
-    println!("Task3.2 cursed {}", task3_2_cursed());
-    println!("Task4.1 cursed {}", task4::task4_1());
-    println!("Task4.2 cursed {}", task4::task4_2());
-    println!("Task5.1 {}", task5::task5_2());
-    let (neat_1, neat_2) = task5_but_good::task5();
+    println!("Task1.1 {}", task1::task_1());
+    println!("Task1.2 {}", task1::task_2());
+    println!("Task2.1 {}", task2::task_1());
+    println!("Task2.2 {}", task2::task_2());
+    println!("Task3.1 {}", task3::task_1());
+    println!("Task3.2 {}", task3::task_2());
+    println!("Task3.1 cursed {}", task3_cursed::task_1_cursed());
+    println!("Task3.2 cursed {}", task3_cursed::task_2_cursed());
+    println!("Task4.1 cursed {}", task4::task_1());
+    println!("Task4.2 cursed {}", task4::task_2());
+    println!("Task5.1 {}", task5::task_2());
+    let (neat_1, neat_2) = task5_but_good::tasks();
 
-    println!("Task5.1 {} \nTask5.2 {}", neat_1, neat_2);
-    println!("Task6.1 {}", task6_1());
-    println!("Task6.2 {}", task6_2());
-    println!("Task7.1 {}", task7_1());
-    println!("Task7.2 {}", task7_2());
-    println!("Task8.1 {}", task8_1());
-    println!("Task8.2 {}", task8_2());
-    println!("Task9.1 {}", task9_1());
-    println!("Task9.2 {}", task9_2());
-    println!("Task10.1 {}", task10_1());
-    println!("Task10.2 {}", task10_2());
+    println!("Task5.1 {} \n Task5.2 {}", neat_1, neat_2);
+    println!("Task6.1 {}", task6::task_1());
+    println!("Task6.2 {}", task6::task_2());
+    println!("Task7.1 {}", task7::task_1());
+    println!("Task7.2 {}", task7::task_2());
+    println!("Task8.1 {}", task8::task_1());
+    println!("Task8.2 {}", task8::task_2());
+    println!("Task9.1 {}", task9::task_1());
+    println!("Task9.2 {}", task9::task_2());
+    println!("Task10.1 {}", task10::task_1());
+    println!("Task10.2 {}", task10::task_2());
 }

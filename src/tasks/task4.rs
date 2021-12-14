@@ -1,6 +1,6 @@
 use crate::task_handler::get_task;
 
-pub fn task4_1() -> String {
+pub fn task_1() -> String {
     let input = get_task(4)
         .lines()
         .filter(|&x| !x.is_empty())
@@ -16,7 +16,7 @@ pub fn task4_1() -> String {
     best_board.get_score().to_string()
 }
 
-pub fn task4_2() -> String {
+pub fn task_2() -> String {
     let input = get_task(4)
         .lines()
         .filter(|&x| !x.is_empty())

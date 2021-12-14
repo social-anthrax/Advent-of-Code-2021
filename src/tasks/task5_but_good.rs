@@ -3,7 +3,7 @@ use core::panic;
 use regex::Regex;
 use std::{cmp, collections::HashMap};
 
-pub fn task5() -> (String, String) {
+pub fn tasks() -> (String, String) {
     let mut p1 = HashMap::<(usize, usize), usize>::new();
     let mut p2 = HashMap::<(usize, usize), usize>::new();
 

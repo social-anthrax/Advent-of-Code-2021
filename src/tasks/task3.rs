@@ -30,7 +30,7 @@ fn most_common_single_bit(column: usize, numbers: &[usize]) -> usize {
     }
 }
 
-pub fn task3_1() -> String {
+pub fn task_1() -> String {
     let input: Vec<usize> = get_task(3)
         .lines()
         .map(|x| usize::from_str_radix(x, 2).unwrap())
@@ -40,7 +40,7 @@ pub fn task3_1() -> String {
     (gamma as u64 * epsilon as u64).to_string() // as the inverse of gamma should be epsilon
 }
 
-pub fn task3_2() -> String {
+pub fn task_2() -> String {
     let input: Vec<usize> = get_task(3)
         .lines()
         .map(|x| usize::from_str_radix(x, 2).unwrap())

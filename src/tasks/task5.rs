@@ -40,7 +40,7 @@ impl Line {
     }
 }
 
-pub fn task5_2() -> String {
+pub fn task_2() -> String {
     let input_lines: Vec<Line> = get_task(5)
         .lines()
         .map(|line| {

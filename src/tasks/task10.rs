@@ -86,7 +86,7 @@ fn complete_line(string: &str) -> Option<Vec<Bracket>> {
     )
 }
 
-pub fn task10_1() -> String {
+pub fn task_1() -> String {
     get_task(10)
         .lines()
         .filter_map(balanced_brackets_corrupted)
@@ -95,7 +95,7 @@ pub fn task10_1() -> String {
         .to_string()
 }
 
-pub fn task10_2() -> String {
+pub fn task_2() -> String {
     let mut sums = get_task(10)
         .lines()
         .filter_map(complete_line)
@@ -114,10 +114,10 @@ pub fn task10_2() -> String {
 
 #[cfg(test)]
 mod test {
-    use crate::tasks::task10::task10_2;
+    use crate::tasks::task10::task_2;
 
     #[test]
     fn test_task_2() {
-        assert_eq!(task10_2(), "2995077699")
+        assert_eq!(task_2(), "2995077699")
     }
 }

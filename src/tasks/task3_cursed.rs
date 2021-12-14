@@ -24,7 +24,7 @@ fn most_common_single_bit(column: usize, numbers: &[usize]) -> usize {
     (one.len() >= zero.len()) as usize
 }
 
-pub fn task3_1_cursed() -> String {
+pub fn task_1_cursed() -> String {
     let input: Vec<usize> = get_task(3)
         .lines()
         .map(|x| usize::from_str_radix(x, 2).unwrap())
@@ -39,7 +39,7 @@ pub enum InputType {
     CO2,
 }
 
-pub fn task3_2_cursed() -> String {
+pub fn task_2_cursed() -> String {
     let input: Vec<usize> = get_task(3)
         .lines()
         .map(|x| usize::from_str_radix(x, 2).unwrap())

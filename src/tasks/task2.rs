@@ -1,6 +1,6 @@
 use crate::task_handler::get_task;
 
-pub fn task2_1() -> String {
+pub fn task_1() -> String {
     let input = get_task(2);
     let mut depth = 0;
     let mut horizontal = 0;
@@ -17,7 +17,7 @@ pub fn task2_1() -> String {
     (depth * horizontal).to_string()
 }
 
-pub fn task2_2() -> String {
+pub fn task_2() -> String {
     let input = get_task(2);
     let mut depth = 0;
     let mut horizontal = 0;

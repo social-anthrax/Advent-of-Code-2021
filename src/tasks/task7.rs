@@ -13,7 +13,7 @@ fn input() -> Vec<usize> {
         })
         .collect()
 }
-pub fn task7_1() -> String {
+pub fn task_1() -> String {
     let mut input = input();
 
     // get median
@@ -26,7 +26,7 @@ pub fn task7_1() -> String {
     mse.to_string()
 }
 
-pub fn task7_2() -> String {
+pub fn task_2() -> String {
     // This totally abuses my friends maths. Very impressive, go take a look.
     // https://yellowtid.es/blog/posts/advent-of-code-2021-day-7-minimising-mse-aad/
     let input = input();

@@ -62,7 +62,7 @@ fn get_input() -> Vec<Vec<u32>> {
         .collect::<Vec<_>>()
 }
 
-pub fn task9_1() -> String {
+pub fn task_1() -> String {
     let input = get_input();
 
     (0..input.len())
@@ -105,7 +105,7 @@ impl SearchFlow for Vec<Vec<u32>> {
     }
 }
 
-pub fn task9_2() -> String {
+pub fn task_2() -> String {
     let input = get_input();
     let mut visited = vec![vec![false; input[0].len()]; input.len()];
 

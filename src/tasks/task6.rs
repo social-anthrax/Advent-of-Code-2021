@@ -26,10 +26,10 @@ fn count_at_days(data: &[usize], time_period: usize) -> usize {
     ages.iter().sum()
 }
 
-pub fn task6_1() -> String {
+pub fn task_1() -> String {
     count_at_days(&task6_input(), 80).to_string()
 }
 
-pub fn task6_2() -> String {
+pub fn task_2() -> String {
     count_at_days(&task6_input(), 256 ).to_string()
 }
