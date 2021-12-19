@@ -1,6 +1,5 @@
 use std::io::Write;
 
-
 use reqwest::header::COOKIE;
 
 pub fn get_task(task_id: u8) -> String {
@@ -18,7 +17,8 @@ pub fn get_task(task_id: u8) -> String {
             match request {
                 Ok(response) => {
                     let mut file =
-                        std::fs::File::create(format!("src/tasks/task{}.txt", task_id)).unwrap();
+                        std::fs::File::create(format!("src/task_input/task{}.txt", task_id))
+                            .unwrap();
                     let body = response.text().unwrap();
                     file.write_all(body.as_bytes()).unwrap();
                     body

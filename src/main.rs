@@ -27,4 +27,6 @@ fn main() {
     println!("Task9.2 {}", task9::task_2());
     println!("Task10.1 {}", task10::task_1());
     println!("Task10.2 {}", task10::task_2());
+    println!("Task11.1 {}", task11::task_1());
+    println!("Task11.2 {}", task11::task_2())
 }
