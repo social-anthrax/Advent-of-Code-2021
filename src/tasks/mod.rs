@@ -12,3 +12,4 @@ pub mod task8;
 pub mod task9;
 pub mod task10;
 pub mod task11;
+pub mod task12;

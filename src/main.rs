@@ -16,7 +16,7 @@ fn main() {
     println!("Task5.1 {}", task5::task_2());
     let (neat_1, neat_2) = task5_but_good::tasks();
 
-    println!("Task5.1 {} \n Task5.2 {}", neat_1, neat_2);
+    println!("Task5.1 {} \nTask5.2 {}", neat_1, neat_2);
     println!("Task6.1 {}", task6::task_1());
     println!("Task6.2 {}", task6::task_2());
     println!("Task7.1 {}", task7::task_1());
@@ -28,5 +28,6 @@ fn main() {
     println!("Task10.1 {}", task10::task_1());
     println!("Task10.2 {}", task10::task_2());
     println!("Task11.1 {}", task11::task_1());
-    println!("Task11.2 {}", task11::task_2())
+    println!("Task11.2 {}", task11::task_2());
+    task12::tasks();
 }
